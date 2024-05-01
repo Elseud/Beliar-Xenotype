@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThoughtDef MayRequire="Sov.ElseudPathf">
+        <defName>BX_DemonRacism</defName>
+        <thoughtClass>Thought_SituationalSocial</thoughtClass>
+        <workerClass>EBSGFramework.ThoughtWorker_Gene_GeneSocial</workerClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <stages>
+            <li>
+                <label>turgid heritage</label>
+                <description>I can't stand looking at this uppity creature.</description>
+                <baseOpinionOffset>-50</baseOpinionOffset>
+            </li>
+        </stages>
+        <modExtensions>
+            <li Class="EBSGFramework.EBSGExtension">
+                <checkedGenes>
+                    <li>Grace</li>
+					<li MayRequire="Sovereign.Seraph">GS_WingsC</li>
+                </checkedGenes>
+                <requiredGenes>
+                    <li>BX_DemonRacismGene</li>
+                </requiredGenes>
+            </li>
+        </modExtensions>
+    </ThoughtDef>
+	
+	
+	  <ThoughtDef MayRequire="Sov.ElseudPathf">
+        <defName>BX_AngelRacism</defName>
+        <thoughtClass>Thought_SituationalSocial</thoughtClass>
+        <workerClass>EBSGFramework.ThoughtWorker_Gene_GeneSocial</workerClass>
+        <validWhileDespawned>true</validWhileDespawned>
+        <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+        <stages>
+            <li>
+                <label>profane heritage</label>
+                <description>I can't stand looking at this misbegoten creature.</description>
+                <baseOpinionOffset>-50</baseOpinionOffset>
+            </li>
+        </stages>
+        <modExtensions>
+            <li Class="EBSGFramework.EBSGExtension">
+                <checkedGenes>
+                    <li>BX_ProfaneHead</li>
+					<li>BX_ProfaneHorns</li>
+					<li>Hemogenic</li>
+					<li>Headbone_MiniHorns</li>
+					<li MayRequire="ReSplice.XOTR.Charmweavers">RS_Tail_Spiked</li>
+					<li MayRequire="ReSplice.XOTR.Charmweavers">RS_Wing_Batlike</li>
+					<li MayRequire="ReSplice.XOTR.Charmweavers">RS_Headbone_MediumHorns</li>
+					<li MayRequire="ReSplice.XOTR.Charmweavers">RS_Headbone_LargeHorns</li>
+					<li MayRequire="ReSplice.XOTR.Charmweavers">RS_Headbone_RamHorns</li>
+                </checkedGenes>
+                <requiredGenes>
+                    <li>BX_AngelRacismGene</li>
+                </requiredGenes>
+            </li>
+        </modExtensions>
+    </ThoughtDef>
+	
+	
+	
+  
+  </Defs>

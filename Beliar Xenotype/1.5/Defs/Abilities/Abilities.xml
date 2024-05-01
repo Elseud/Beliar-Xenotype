@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <AbilityDef>
+    <defName>BX_InfernalHeart</defName>
+    <label>infernal heart</label>
+    <description>Release a hemogenic stimulant into the bloodstream, drastically increasing movement speed, melee hit and dodge chance, decreasing pain and enabling a special blazing fist melee attack that has a chance to set the target on fire. The effects of the stimulant will lessen over time, eventually replacing the buffs with a debuff to speed, melee hit and dodge chance, and mental break threshold.</description>
+    <iconPath>UI/Ability_InfernalHeart</iconPath>
+    <warmupMoteSocialSymbol>UI/Ability_InfernalHeart</warmupMoteSocialSymbol>
+    <jobDef>CastAbilityOnThing</jobDef>
+    <targetRequired>False</targetRequired>
+    <canUseAoeToGetTargets>False</canUseAoeToGetTargets>
+    <stunTargetWhileCasting>False</stunTargetWhileCasting>
+    <showPsycastEffects>False</showPsycastEffects>
+    <sendMessageOnCooldownComplete>False</sendMessageOnCooldownComplete>
+    <displayGizmoWhileUndrafted>False</displayGizmoWhileUndrafted>
+    <disableGizmoWhileUndrafted>True</disableGizmoWhileUndrafted>
+    <groupDef>MultiRole</groupDef>
+    <hotKey>Misc12</hotKey>
+    <warmupStartSound>CombatCommand_Warmup</warmupStartSound>
+    <statBases>
+      <Ability_Duration>126</Ability_Duration>
+      <Ability_EffectRadius>0</Ability_EffectRadius>
+    </statBases>
+    <verbProperties>
+		  <soundCast>BX_InfernalHeartSound</soundCast>
+      <verbClass>Verb_CastAbility</verbClass>
+      <warmupTime>0.5</warmupTime>
+      <range>-1</range>
+      <drawAimPie>False</drawAimPie>
+      <requireLineOfSight>False</requireLineOfSight>
+	    <targetParams>
+        <canTargetSelf>true</canTargetSelf>
+        <canTargetPawns>false</canTargetPawns>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetHumans>false</canTargetHumans>
+        <canTargetMechs>false</canTargetMechs>
+      </targetParams>
+    </verbProperties>
+    <comps>
+	   <li Class="CompProperties_AbilityHemogenCost">
+        <hemogenCost>0.3</hemogenCost>
+      </li>
+      <li Class="CompProperties_AbilityGiveHediff">
+        <compClass>CompAbilityEffect_GiveHediff</compClass>
+        <hediffDef>BX_InfernalRageHediff</hediffDef>
+        <onlyApplyToSelf>True</onlyApplyToSelf>
+        <replaceExisting>true</replaceExisting>
+      </li>
+    </comps>
+  </AbilityDef>
+  
+  <HediffDef>
+    <defName>BX_InfernalRageHediff</defName>
+    <label>infernal rage</label>
+    <description>The effects of a hemogenic stimulant coursing through the pawn's veins. Enables blazing fist melee attack, along with increasing or decreasing speed, pain factor, melee hit/dodge chance and mental break threshold depending on the hediff's remaining severity.</description>
+    <defaultLabelColor>(165, 81, 81)</defaultLabelColor>
+    <hediffClass>HediffWithComps</hediffClass>
+    <maxSeverity>1</maxSeverity>
+    <initialSeverity>1</initialSeverity>
+    <stages>
+      <li>
+        <label>rage exhaustion</label>
+        <statOffsets>
+          <MeleeHitChance>-5</MeleeHitChance>
+          <MeleeDodgeChance>-5</MeleeDodgeChance>
+          <MoveSpeed>-0.2</MoveSpeed>
+          <MentalBreakThreshold>0.1</MentalBreakThreshold>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>0.2</minSeverity>
+        <label>ebbing rage</label>
+        <statOffsets>
+          <MeleeHitChance>5</MeleeHitChance>
+          <MeleeDodgeChance>5</MeleeDodgeChance>
+        </statOffsets>
+        <painFactor>0.8</painFactor>
+      </li>
+      <li>
+        <minSeverity>0.5</minSeverity>
+        <label>burning rage</label>
+        <statOffsets>
+          <MeleeHitChance>10</MeleeHitChance>
+          <MeleeDodgeChance>10</MeleeDodgeChance>
+          <MoveSpeed>0.3</MoveSpeed>
+        </statOffsets>
+        <painFactor>0.5</painFactor>
+      </li>
+      <li>
+        <minSeverity>0.8</minSeverity>
+        <label>infernal rage</label>
+        <statOffsets>
+          <MeleeHitChance>15</MeleeHitChance>
+          <MeleeDodgeChance>15</MeleeDodgeChance>
+          <MoveSpeed>0.6</MoveSpeed>
+        </statOffsets>
+        <painFactor>0.3</painFactor>
+      </li> 
+    </stages>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1.2</severityPerDay>
+      </li>
+      <li Class="HediffCompProperties_DisappearsOnDeath"/>
+      <li Class="HediffCompProperties_VerbGiver">
+        <tools>
+          <li>
+            <label>blazing fist</label>
+            <capacities>
+              <li>Blunt</li>
+            </capacities>
+            <power>14</power>
+            <cooldownTime>2</cooldownTime>
+            <extraMeleeDamages>
+              <li>
+                <def>Flame</def>
+                <amount>8</amount>
+                <chance>0.5</chance>
+              </li>
+            </extraMeleeDamages>
+            <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+          </li>
+        </tools>
+      </li>
+    </comps>
+    <isBad>false</isBad>
+  </HediffDef>
+  
+ </Defs>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+ <ScenarioDef>
+    <defName>BX_BeliarStart</defName>
+    <label>Escaped Beliar</label>
+	<scenario>
+		<summary>One beliar thirsting for blood - figuratively and literally. Extremely difficult.</summary>
+		<description>The cryptocasket confining you aboard the slave ship unexpectedly malfunctioned during the ship's stay above the skies of a distant world. Armed with nothing but the rage in your heart and your trusty sword in your hand, you've slaughtered everyone aboard the ship, master and slave alike, then boarded the escape pod, seeking freedom and exquisite slaughter.\n\nNote: Since you'll start with one naked character and no resources, this is considered a very difficult start.</description>
+		<playerFaction>
+			<def>PlayerFaction</def>
+			<factionDef>PlayerColony</factionDef>
+		</playerFaction>
+		<parts>
+			<li Class="ScenPart_ConfigPage_ConfigureStartingPawns_Xenotypes">
+				<def>ConfigurePawnsXenotypes</def>
+				<pawnChoiceCount>4</pawnChoiceCount>
+				<customSummary>Start with one adult or child beliar.</customSummary>
+				<xenotypeCounts>
+					<li>
+						<requiredAtStart>True</requiredAtStart>
+						<xenotype>BX_Beliar</xenotype>
+						<allowedDevelopmentalStages>Child, Adult</allowedDevelopmentalStages>
+					</li>
+				</xenotypeCounts>
+			</li>
+			<li Class="ScenPart_PlayerPawnsArriveMethod">
+				<def>PlayerPawnsArriveMethod</def>
+				<method>DropPods</method>
+			</li>
+			<li Class="ScenPart_Naked">
+				<def>Naked</def>
+				<context>PlayerStarter</context>
+			</li>
+			<li Class="ScenPart_GameStartDialog">
+				<def>GameStartDialog</def>
+				<text>Years of fighting wars that weren't yours finally came to an end when the cryptosleep casket that was your jail unexpectedly malfunctioned, letting you escape and slaughter everyone aboard the ship of your former masters.\n\nNow, landing on this unknown rimworld aboard the hijacked escape pod, with nothing but your trusty sword by your side and the taste of blood and freedom on your lips, for the first time in your life you'll kill in nobody's name but yours.</text>
+				<closeSound>GameStartSting</closeSound>
+			</li>
+			<li Class="ScenPart_StartingThing_Defined">
+				<def>StartingThing_Defined</def>
+				<thingDef>BX_BloodletterBlade</thingDef>
+				<count>1</count>
+				<quality>Good</quality>
+			</li>
+		</parts>
+	</scenario>
+ </ScenarioDef>
+
+</Defs>

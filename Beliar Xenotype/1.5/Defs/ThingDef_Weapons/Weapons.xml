@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BaseWeapon">
+    <defName>BX_BloodletterBlade</defName>
+    <label>bloodletter blade</label>
+    <description>A sinister blade forged to spill blood - and keep it flowing. With each jagged slash it inflicts, it leaves behind micro-shards of toxic metal within its target's body. These fragments have a hemorrhagic effect, preventing coagulation and swiftly transforming a trickle of red into a stream of crimson if left untreated.\n\nThe original blades are said to have been forged by the Beliar out of pilfered cult relics, and used to slaughter their former owners and their psychic abominations. With enough esoteric knowledge and access to exotic materials, one could perhaps make them again.</description>
+    <generateCommonality>0.15</generateCommonality>
+    <equippedAngleOffset>-65</equippedAngleOffset>
+    <relicChance>3</relicChance>
+    <smeltable>false</smeltable>
+	<techLevel>Ultra</techLevel>
+	<statBases>
+      <MarketValue>1800</MarketValue>
+      <Mass>2</Mass>
+    </statBases>
+	<comps>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponMelee</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+      <li Class="CompProperties_Biocodable"/>
+    </comps>
+	<thingCategories>
+      <li>WeaponsMelee</li>
+    </thingCategories>
+	<weaponTags>
+      <li>UltratechMelee</li>
+    </weaponTags>
+	<tradeTags>
+      <li>WeaponMelee</li>
+    </tradeTags>
+    <weaponClasses>
+	  <li>Melee</li>
+      <li>Ultratech</li>
+      <li>MeleePiercer</li>
+    </weaponClasses>
+	    <thingSetMakerTags>
+      <li>RewardStandardMidFreq</li>
+    </thingSetMakerTags>
+    <graphicData>
+      <texPath>Things/Weapons/Bloodletter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+	  <drawSize>1.6</drawSize>
+    </graphicData>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>12</power>
+        <cooldownTime>1.6</cooldownTime>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>GS_BleedDamage</li>
+        </capacities>
+        <power>23</power>
+        <cooldownTime>2</cooldownTime>
+        <armorPenetration>0.70</armorPenetration>
+      </li>
+      <li>
+        <label>edge</label>
+        <capacities>
+          <li>GS_BleedDamage</li>
+        </capacities>
+        <power>23</power>
+        <cooldownTime>2</cooldownTime>
+        <armorPenetration>0.70</armorPenetration>
+      </li>
+    </tools>
+  </ThingDef>
+
+  <DamageDef ParentName="CutBase">
+    <defName>GS_BleedDamage</defName>
+    <label>bleed</label>
+	    <additionalHediffs>
+      <li>
+        <hediff>GS_BleedHediff</hediff>
+        <severityPerDamageDealt>0.015</severityPerDamageDealt>
+      </li>
+    </additionalHediffs>
+  </DamageDef>
+
+  <ToolCapacityDef>
+    <defName>GS_BleedDamage</defName>
+    <label>bloody slash</label>
+  </ToolCapacityDef>
+
+  <ManeuverDef>
+    <defName>GS_BleedDamage</defName>
+    <requiredCapacity>GS_BleedDamage</requiredCapacity>
+    <verb>
+      <verbClass>Verb_MeleeAttackDamage</verbClass>
+      <meleeDamageDef>GS_BleedDamage</meleeDamageDef>
+    </verb>
+    <logEntryDef>MeleeAttack</logEntryDef>
+    <combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+    <combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+    <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+    <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+  </ManeuverDef>
+ 
+  <HediffDef>
+	<defName>GS_BleedHediff</defName>
+	<hediffClass>HediffWithComps</hediffClass>
+    <label>hemmorrhage</label>
+    <labelNoun>hemmorhaging</labelNoun>
+    <description>Microscopic shards of toxic metal in the bloodstream are preventing proper coagulation, causing serious hemmorhaging from even the most minor of wounds.</description>
+    <isBad>true</isBad>
+    <minSeverity>0.001</minSeverity>
+    <maxSeverity>1</maxSeverity>
+    <initialSeverity>0.001</initialSeverity>
+    <comps>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>2500</disappearsAfterTicks>
+      </li>
+    </comps>
+	
+    <stages>
+      <li>
+        <label>negligible hemmorhaging</label>
+		<totalBleedFactor>1.2</totalBleedFactor>
+      </li> 
+      <li>
+        <minSeverity>0.5</minSeverity>
+        <label>medium hemmorhaging</label>
+		 <totalBleedFactor>1.4</totalBleedFactor>
+      </li>
+      <li>
+        <minSeverity>0.9</minSeverity>
+        <label>profuse hemmorhaging</label>
+		 <totalBleedFactor>1.6</totalBleedFactor>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  </Defs>

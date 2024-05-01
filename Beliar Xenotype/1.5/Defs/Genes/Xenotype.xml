@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<XenotypeDef>
+		<defName>BX_Beliar</defName>
+		<label>Beliar</label>
+		<description>Born out of desperation rather than any calculated intent, the beliar came to be on a cult-infested urbworld of Mendev. Engineered using impid stock and scraps of sanguophage genetic material, they were turned into fiery murder machines, and released to kill and die in cultist-ridden hovels and sewers crawling with flesh abominations. Made to crave violence on an instinctual level, the beliar fashioned it into a tool of self-expression; each kill a spectacle, each battlefield a gruesome work of art. And when the last cultist was slain and there were no more aberrations left to kill, they turned on their masters, plunging the world of their creators into chaos and remaking it into a paradise of violence, from which they expand outward to paint the Rim red.</description>
+		<descriptionShort>Born out of desperation rather than any calculated intent, the beliar came to be on a cult-infested urbworld of Mendev. Engineered using impid stock and scraps of sanguophage genetic material, they were turned into fiery murder machines, and released to kill and die in cultist-ridden hovels and sewers crawling with flesh abominations. Made to crave violence on an instinctual level, the beliar fashioned it into a tool of self-expression; each kill a spectacle, each battlefield a gruesome work of art.</descriptionShort>
+		<iconPath>UI/Beliar_Icon</iconPath>
+		<inheritable>true</inheritable>
+		<nameMaker>NamerPersonImpid</nameMaker>
+		<chanceToUseNameMaker>1</chanceToUseNameMaker>
+		<combatPowerFactor>1.8</combatPowerFactor>
+		<genes>
+		    <li>FireSpew</li>
+			<li>Hemogenic</li>
+			<li>LongjumpLegs</li>
+			<li>BX_Bloodbath</li>
+			<li>BX_InfernalHeart</li>
+			<li>Superclotting</li>
+			<li>PsychicAbility_Deaf</li>
+			<li>Mood_Depressive</li>
+			<li>MinTemp_SmallIncrease</li>
+			<li>MaxTemp_LargeIncrease</li>
+			<li>BX_BasaltSkin</li>
+			<li>BX_ExplosiveDemise</li>
+			<li>BX_Gorefeast</li>
+			<li>Aggression_HyperAggressive</li>
+			<li>MeleeDamage_Strong</li>
+			<li>BX_HomicidalUrges</li>
+			<li>Robust</li>
+			<li>Pain_Reduced</li>
+			<li MayRequire="Sov.ElseudPathf">BX_DemonRacismGene</li>
+			<li>Hair_BaldOnly</li>
+			<li>Beard_NoBeardOnly</li>
+			<li>BX_ProfaneHead</li>
+			<li>BX_ProfaneHorns</li>
+			<li>Body_Hulk</li>
+			<li>Hair_InkBlack</li>
+			<li>Skin_PaleRed</li>
+			<li>Skin_DeepRed</li>
+			<li>Skin_InkBlack</li>
+			<li>AptitudeRemarkable_Melee</li>
+			<li>AptitudeStrong_Artistic</li>
+			<li>AptitudePoor_Cooking</li>
+			<li>AptitudePoor_Social</li>
+			<li>AptitudeTerrible_Plants</li>
+			<li>AptitudeTerrible_Animals</li>
+			<li>AptitudeTerrible_Medicine</li>
+		</genes>
+		<forbiddenWeaponClasses>
+			<li>LongShots</li>
+		</forbiddenWeaponClasses>
+	</XenotypeDef>
+
+</Defs>

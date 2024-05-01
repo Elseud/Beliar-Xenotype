@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Royalty</li>
+		</mods>
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/FactionDef[defName="Empire"]/xenotypeSet</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/FactionDef[defName="Empire"]</xpath>
+						<value>
+							<xenotypeSet />
+						</value>
+					</nomatch>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/FactionDef[defName="Empire"]/xenotypeSet/xenotypeChances</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/FactionDef[defName="Empire"]/xenotypeSet</xpath>
+						<value>
+							<xenotypeChances />
+						</value>
+					</nomatch>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/FactionDef[defName="Empire"]/xenotypeSet/xenotypeChances</xpath>
+					<value>
+						<BX_Beliar>0.05</BX_Beliar>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Factions Expanded - Empire</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<operations>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/FactionDef[defName="VFEE_Deserters"]/xenotypeSet</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/FactionDef[defName="VFEE_Deserters"]</xpath>
+						<value>
+							<xenotypeSet />
+						</value>
+					</nomatch>
+				</li>
+				<li Class="PatchOperationConditional">
+					<xpath>/Defs/FactionDef[defName="VFEE_Deserters"]/xenotypeSet/xenotypeChances</xpath>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>/Defs/FactionDef[defName="VFEE_Deserters"]/xenotypeSet</xpath>
+						<value>
+							<xenotypeChances />
+						</value>
+					</nomatch>
+				</li>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs/FactionDef[defName="VFEE_Deserters"]/xenotypeSet/xenotypeChances</xpath>
+					<value>
+						<BX_Beliar>0.08</BX_Beliar>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/FactionDef[defName="TribeSavageImpid"]/xenotypeSet</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/FactionDef[defName="TribeSavageImpid"]</xpath>
+			<value>
+				<xenotypeSet />
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/FactionDef[defName="TribeSavageImpid"]/xenotypeSet/xenotypeChances</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/FactionDef[defName="TribeSavageImpid"]/xenotypeSet</xpath>
+			<value>
+				<xenotypeChances />
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionDef[defName="TribeSavageImpid"]/xenotypeSet/xenotypeChances</xpath>
+		<value>
+			<BX_Beliar>0.1</BX_Beliar>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/FactionDef[defName="Pirate"]/xenotypeSet</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/FactionDef[defName="Pirate"]</xpath>
+			<value>
+				<xenotypeSet />
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/FactionDef[defName="Pirate"]/xenotypeSet/xenotypeChances</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>/Defs/FactionDef[defName="Pirate"]/xenotypeSet</xpath>
+			<value>
+				<xenotypeChances />
+			</value>
+		</nomatch>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>/Defs/FactionDef[defName="Pirate"]/xenotypeSet/xenotypeChances</xpath>
+		<value>
+			<BX_Beliar>0.08</BX_Beliar>
+		</value>
+	</Operation>
+
+</Patch>

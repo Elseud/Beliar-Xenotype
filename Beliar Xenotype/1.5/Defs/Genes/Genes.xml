@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!--Homicidal Urges-->
+  <GeneDef>
+    <defName>BX_HomicidalUrges</defName>
+    <label>homicidal urges</label>
+    <labelShortAdj>homicidal</labelShortAdj>
+    <description>Carriers of this gene are psychically dependent on killing. They will grow restless if they go too long without ending a life, no matter how or whose.</description>
+    <displayCategory>Violence</displayCategory>
+    <displayOrderInCategory>61</displayOrderInCategory>
+    <iconPath>UI/Gene_HomicidalUrges</iconPath>
+    <geneClass>EBSGFramework.HediffAdder</geneClass>
+    <causesNeed>BX_HomicidalNeed</causesNeed>
+    <biostatMet>3</biostatMet>
+    <minAgeActive>13</minAgeActive>
+    <exclusionTags>
+      <li>KillThirst</li>
+    </exclusionTags>
+  </GeneDef>
+
+  <NeedDef>
+    <defName>BX_HomicidalNeed</defName>
+    <needClass>EBSGFramework.Need_Murderous</needClass>
+    <label>homicidal urge</label>
+    <description>People with homicidal urges need to kill, without care for what or how. Not fulfilling this need for a while will make them very upset.</description>
+    <baseLevel>0</baseLevel>
+    <minIntelligence>ToolUser</minIntelligence>
+    <colonistAndPrisonersOnly>true</colonistAndPrisonersOnly>
+    <onlyIfCausedByGene>true</onlyIfCausedByGene>
+    <modExtensions>
+      <li Class="EBSGFramework.EBSGExtension">
+        <increasePerKill>1</increasePerKill>
+        <thresholdPercentages>
+          <li>0.3</li>
+          <li>0.6</li>
+        </thresholdPercentages>
+      </li>
+    </modExtensions>
+  </NeedDef>
+
+  <ThoughtDef>
+    <defName>BX_HomicidalThoughts</defName>
+    <thoughtClass>EBSGFramework.Thought_Situational_BasicCurveNeedMood</thoughtClass>
+    <workerClass>EBSGFramework.ThoughtWorker_BasicCurveNeedMood</workerClass>
+    <developmentalStageFilter>Baby, Child, Adult</developmentalStageFilter>
+    <stages>
+        <li>
+            <label>homicidal urges</label>
+            <description>I haven't taken the life of another for a while now... I grow restless.</description>
+            <baseMoodEffect>-1</baseMoodEffect>
+        </li>
+    </stages>
+    <modExtensions>
+        <li Class="EBSGFramework.EBSGExtension">
+            <need>BX_HomicidalNeed</need>
+            <moodOffsetCurve>
+                <points>
+                    <li>0, -18</li>
+                    <li>0.3, -4</li>
+                    <li>0.301, 0</li>
+                </points>
+            </moodOffsetCurve>
+        </li>
+    </modExtensions>
+</ThoughtDef>
+
+  <!--Bloodbath-->
+  <GeneDef>
+    <defName>BX_Bloodbath</defName>
+    <geneClass>EBSGFramework.HediffAdder</geneClass>
+    <label>Bloodbath</label>
+    <description>Carriers of this gene have uniquely permeable skin that can directly absorb blood spilled on it, allowing them to regain hemogen with each human or entity killed in melee.</description>
+    <iconPath>UI/Gene_Bloodbath</iconPath>
+    <prerequisite>Hemogenic</prerequisite>
+    <displayCategory>Hemogen</displayCategory>
+    <displayOrderInCategory>110</displayOrderInCategory>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-1</biostatMet>
+    <modExtensions>
+      <li Class="EBSGFramework.EBSGExtension">
+        <hediffsToApply>
+          <li>
+            <hediff>BX_BloodbathHediff</hediff>
+            <onlyIfNew>true</onlyIfNew>
+            <severity>0.5</severity>
+          </li>
+        </hediffsToApply>
+        <vanishingGene>false</vanishingGene>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <HediffDef>
+    <defName>BX_BloodbathHediff</defName>
+    <label>thirsting for blood</label>
+    <initialSeverity>0.001</initialSeverity>
+    <everCurableByItem>false</everCurableByItem>
+    <hediffClass>HediffWithComps</hediffClass>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <description>You shouldn't be able to read this outside devmode.</description>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+    <comps>
+      <li Class="EBSGFramework.HediffCompProperties_HemogenOnKill">
+        <allowAnimals>false</allowAnimals>
+        <allowDryads>false</allowDryads>
+        <allowInsects>false</allowInsects>
+        <hemogenEfficiency>1</hemogenEfficiency>
+        <maxGainableHemogen>0.2</maxGainableHemogen>
+        <maxDistance>1</maxDistance>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!--Infernal Heart-->
+  <GeneDef>
+    <defName>BX_InfernalHeart</defName>
+    <label>infernal heart</label>
+    <description>Carriers of this gene have an additional chamber in their heart filled with a hemogenic stimulant. At the carrier's will, the chemical floods their bloodstream, enhancing their reflexes and speed while numbing all pain. Furthermore, it activates glands hidden in the carrier's knuckles, which have a chance to spray compounds that combust upon air exposure on impact.\n\nOver time, the effects of the stimulant lessen, eventually leading to exhaustion and mental instability.</description>
+    <iconPath>UI/Gene_InfernalHeart</iconPath>
+    <prerequisite>Hemogenic</prerequisite>
+    <displayCategory>Hemogen</displayCategory>
+    <displayOrderInCategory>110</displayOrderInCategory>
+    <abilities>
+      <li>BX_InfernalHeart</li>
+    </abilities>
+    <descriptionHyperlinks>
+      <AbilityDef>BX_InfernalHeart</AbilityDef>
+    </descriptionHyperlinks>
+    <biostatCpx>1</biostatCpx>
+    <biostatMet>-2</biostatMet>
+  </GeneDef>
+
+  <!--Basalt Skin-->
+  <GeneDef>
+    <defName>BX_BasaltSkin</defName>
+    <label>basalt skin</label>
+    <labelShortAdj>basalt skin</labelShortAdj>
+    <description>Carriers of this gene have altered sweat glands that release a rapidly hardening, thermally isolating black secretion in response to extreme heat, rendering them virtually imprevious to fire.</description>
+    <iconPath>UI/Gene_BasaltSkin</iconPath>
+    <displayCategory>ResistanceAndWeakness</displayCategory>
+    <displayOrderInCategory>61</displayOrderInCategory>
+    <statFactors>
+      <Flammability>0</Flammability>
+    </statFactors>
+    <damageFactors>
+      <Flame>0</Flame>
+    </damageFactors>
+    <biostatCpx>2</biostatCpx>
+    <biostatMet>-3</biostatMet>
+    <exclusionTags>
+      <li>FireDamage</li>
+    </exclusionTags>
+  </GeneDef>
+
+  <!--Gorefeast-->
+  <GeneDef>
+    <geneClass>EBSGFramework.HediffAdder</geneClass>
+    <defName>BX_Gorefeast</defName>
+    <label>Gorefeast</label>
+    <description>Carriers of this gene have an altered hindbrain that associates close-quarters murder with healing, releasing a regeneration-boosting enzyme into the bloodstream. During particularly long kill streaks, carriers are known to heal scars, and even regain digits or limbs.</description>
+    <iconPath>UI/Gene_Gorefeast</iconPath>
+    <displayCategory>Healing</displayCategory>
+    <displayOrderInCategory>62</displayOrderInCategory>
+    <biostatCpx>2</biostatCpx>
+    <biostatMet>-3</biostatMet>
+    <modExtensions>
+      <li Class="EBSGFramework.EBSGExtension">
+        <hediffsToApply>
+          <li>
+            <hediff>BX_GorefeastHediff</hediff>
+            <onlyIfNew>true</onlyIfNew>
+            <severity>0.001</severity>
+          </li>
+        </hediffsToApply>
+        <vanishingGene>false</vanishingGene>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <HediffDef>
+    <defName>BX_GorefeastHediff</defName>
+    <label>Gorefeast</label>
+    <description>You shouldn't be able to read this outside devmode.</description>
+    <hediffClass>HediffWithComps</hediffClass>
+    <everCurableByItem>false</everCurableByItem>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <initialSeverity>0.001</initialSeverity>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+    <comps>
+      <li Class="EBSGFramework.HediffCompProperties_HediffOnKill">
+        <hediff>BX_GorefeastHealHediff</hediff>
+        <severityForFirstKill>0.125</severityForFirstKill>
+        <severityPerExtraKill>0.125</severityPerExtraKill>
+        <allowMechanoids>True</allowMechanoids>
+        <allowAnimals>True</allowAnimals>
+        <allowDryads>True</allowDryads>
+        <allowInsects>True</allowInsects>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef>
+    <defName>BX_GorefeastHealHediff</defName>
+    <label>Gorefeast</label>
+    <hediffClass>HediffWithComps</hediffClass>
+    <description>Regenerative enzymes flood the pawn's bloodstream with each melee kill, making them progressively more fast-healing and immune to disease. Eventually the boosted regeneration can reach the point of mending scars and regrowing missing bodyparts.</description>
+    <minSeverity>0.001</minSeverity>
+    <maxSeverity>1</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1.2</severityPerDay>
+      </li>
+    </comps>
+    <stages>
+      <li>
+        <label>No rest for the living</label>
+        <statOffsets>
+          <InjuryHealingFactor>2</InjuryHealingFactor>
+          <ImmunityGainSpeed>1.1</ImmunityGainSpeed>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>0.57</minSeverity>
+        <label>Knee deep in the dead</label>
+        <regeneration>12</regeneration>
+        <statOffsets>
+          <InjuryHealingFactor>3</InjuryHealingFactor>
+          <ImmunityGainSpeed>1.25</ImmunityGainSpeed>
+        </statOffsets>
+      </li>
+      <li>
+        <minSeverity>0.83</minSeverity>
+        <label>Thy flesh consumed</label>
+        <regeneration>36</regeneration>
+        <statOffsets>
+          <InjuryHealingFactor>4</InjuryHealingFactor>
+          <ImmunityGainSpeed>1.5</ImmunityGainSpeed>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!--Explosive Demise-->
+  <GeneDef>
+    <geneClass>EBSGFramework.HediffAdder</geneClass>
+    <defName>BX_ExplosiveDemise</defName>
+    <label>explosive demise</label>
+    <labelShortAdj>explosive</labelShortAdj>
+    <description>The body of the carrier produces and metabolises a range of volatile enzymes, kept in delicate balance by its various biological processes. At the moment of death, the equilibrium is broken, making the carrier explode into a ball of fire as the chemicals enter a chain reaction.</description>
+    <iconPath>UI/Gene_ExplosiveDemise</iconPath>
+    <displayCategory>Miscellaneous</displayCategory>
+    <displayOrderInCategory>62</displayOrderInCategory>
+    <biostatMet>-1</biostatMet>
+    <modExtensions>
+      <li Class="EBSGFramework.EBSGExtension">
+        <hediffsToApply>
+          <li>
+            <hediff>BX_ExplosiveDemiseHediff</hediff>
+            <onlyIfNew>true</onlyIfNew>
+            <severity>0.5</severity>
+          </li>
+        </hediffsToApply>
+        <vanishingGene>false</vanishingGene>
+      </li>
+    </modExtensions>
+  </GeneDef>
+
+  <HediffDef>
+    <defName>BX_ExplosiveDemiseHediff</defName>
+    <label>explosive demise</label>
+    <description>You shouldn't be able to read this outside devmode.</description>
+    <everCurableByItem>false</everCurableByItem>
+    <initialSeverity>0.001</initialSeverity>
+    <stages>
+      <li>
+        <becomeVisible>false</becomeVisible>
+      </li>
+    </stages>
+    <hediffClass>HediffWithComps</hediffClass>
+    <scenarioCanAdd>false</scenarioCanAdd>
+    <comps>
+      <li Class="EBSGFramework.HediffCompProperties_ExplodeOnDeath">
+        <radius>2.9</radius>
+        <damageDef>Burn</damageDef>
+        <injureSelf>false</injureSelf>
+        <extraGasType>None</extraGasType>
+        <explosionSound>Foam_Impact</explosionSound>
+        <preExplosionThing>Filth_Fuel</preExplosionThing>
+        <preExplosionThingChance>0.6</preExplosionThingChance>
+        <chanceToStartFire>0.50</chanceToStartFire>
+        <damageAmount>30</damageAmount>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <!--VISUALS-->
+
+  <!--Horns-->
+  <GeneDef ParentName="GeneHeadboneBase">
+    <defName>BX_ProfaneHorns</defName>
+    <label>profane horns</label>
+    <description>Carriers of this gene grow a range of large, demonic-looking horns from their head.</description>
+    <iconPath>UI/Gene_ProfaneHorns</iconPath>
+    <renderNodeProperties>
+      <li>
+        <nodeClass>PawnRenderNode_AttachmentHead</nodeClass>
+        <workerClass>PawnRenderNodeWorker_FlipWhenCrawling</workerClass>
+        <texPaths>
+          <li>Things/Parts/ProfaneHorns_a</li>
+          <li>Things/Parts/ProfaneHorns_b</li>
+          <li>Things/Parts/ProfaneHorns_c</li>
+        </texPaths>
+        <color>(128, 128, 128)</color>
+        <parentTagDef>Head</parentTagDef>
+        <drawData>
+          <defaultData>
+            <layer>80</layer>
+          </defaultData>
+          <dataNorth>
+            <layer>10</layer>
+          </dataNorth>
+        </drawData>
+      </li>
+    </renderNodeProperties>
+    <symbolPack>
+      <prefixSymbols>
+        <li>
+          <symbol>horn</symbol>
+        </li>
+        <li>
+          <symbol>spike</symbol>
+        </li>
+        <li>
+          <symbol>devil</symbol>
+        </li>
+        <li>
+          <symbol>demon</symbol>
+        </li>
+        <li>
+          <symbol>hell</symbol>
+        </li>
+      </prefixSymbols>
+      <suffixSymbols>
+        <li>
+          <symbol>horn</symbol>
+        </li>
+        <li>
+          <symbol>spike</symbol>
+        </li>
+        <li>
+          <symbol>vil</symbol>
+        </li>
+      </suffixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+  <!--Head-->
+  <HeadTypeDef ParentName="AverageBase">
+    <defName>BX_ProfaneHead</defName>
+    <graphicPath>Things/Parts/ProfaneHead</graphicPath>
+    <randomChosen>false</randomChosen>
+    <gender>None</gender>
+    <requiredGenes>
+      <li>BX_ProfaneHead</li>
+    </requiredGenes>
+  </HeadTypeDef>
+
+  <GeneDef ParentName="GeneJawBase">
+    <defName>BX_ProfaneHead</defName>
+    <label>profane head</label>
+    <description>Carriers of this gene have a four eyed, demonic-looking head. Curiously, the way the nerves of the eyes are intertwined prevent the carrier from gaining any of the benefits of quadnocular vision.</description>
+    <iconPath>UI/Gene_ProfaneHead</iconPath>
+    <forcedHeadTypes>
+      <li>BX_ProfaneHead</li>
+    </forcedHeadTypes>
+    <displayOrderInCategory>97</displayOrderInCategory>
+    <symbolPack>
+      <prefixSymbols>
+        <li>
+          <symbol>unholy</symbol>
+        </li>
+        <li>
+          <symbol>dire</symbol>
+        </li>
+        <li>
+          <symbol>dread</symbol>
+        </li>
+        <li>
+          <symbol>baleful</symbol>
+        </li>
+      </prefixSymbols>
+    </symbolPack>
+  </GeneDef>
+
+</Defs>
