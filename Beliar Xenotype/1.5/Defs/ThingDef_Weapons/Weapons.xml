@@ -5,14 +5,13 @@
     <defName>BX_BloodletterBlade</defName>
     <label>bloodletter blade</label>
     <description>A sinister blade forged to spill blood - and keep it flowing. With each jagged slash it inflicts, it leaves behind micro-shards of toxic metal within its target's body. These fragments have a hemorrhagic effect, preventing coagulation and swiftly transforming a trickle of red into a stream of crimson if left untreated.\n\nThe original blades are said to have been forged by the Beliar out of pilfered cult relics, and used to slaughter their former owners and their psychic abominations. With enough esoteric knowledge and access to exotic materials, one could perhaps make them again.</description>
-    <generateCommonality>0.15</generateCommonality>
     <equippedAngleOffset>-65</equippedAngleOffset>
     <relicChance>3</relicChance>
     <smeltable>false</smeltable>
-	<techLevel>Ultra</techLevel>
+	<techLevel>Medieval</techLevel>
 	<statBases>
-      <MarketValue>1800</MarketValue>
-      <Mass>2</Mass>
+      <MarketValue>1100</MarketValue>
+      <Mass>2.5</Mass>
     </statBases>
 	<comps>
       <li>
@@ -29,14 +28,13 @@
       <li>WeaponsMelee</li>
     </thingCategories>
 	<weaponTags>
-      <li>UltratechMelee</li>
+      <li>BX_BeliarMelee</li>
     </weaponTags>
 	<tradeTags>
       <li>WeaponMelee</li>
     </tradeTags>
     <weaponClasses>
-	  <li>Melee</li>
-      <li>Ultratech</li>
+	    <li>Melee</li>
       <li>MeleePiercer</li>
     </weaponClasses>
 	    <thingSetMakerTags>

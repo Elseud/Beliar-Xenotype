@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <PawnKindDef Name="BX_BeliarBase" Abstract="True">
+    <label>beliar</label>
+    <race>Human</race>
+    <xenotypeSet>
+      <xenotypeChances>
+        <BX_Beliar>999</BX_Beliar>
+      </xenotypeChances>
+    </xenotypeSet>
+    <maxGenerationAge>55</maxGenerationAge>
+    <backstoryCryptosleepCommonality>0.08</backstoryCryptosleepCommonality>
+    <styleItemTags>
+      <li>
+        <tag>Soldier</tag>
+        <baseWeight>1</baseWeight>
+        <weightFactor>1</weightFactor>
+      </li>
+    </styleItemTags>
+    <useFactionXenotypes>false</useFactionXenotypes>
+    <combatPower>120</combatPower>
+    <defaultFactionType>TribeSavageImpid</defaultFactionType>
+    <chemicalAddictionChance>0.08</chemicalAddictionChance>
+    <isFighter>true</isFighter>
+    <initialResistanceRange>10~40</initialResistanceRange>
+    <initialWillRange>6~10</initialWillRange>
+    <specificApparelRequirements>
+      <li>
+        <bodyPartGroup>Torso</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+        <stuff>Cloth</stuff>
+      </li>
+      <li>
+        <bodyPartGroup>Legs</bodyPartGroup>
+        <apparelLayer>OnSkin</apparelLayer>
+        <stuff>Cloth</stuff>
+      </li>
+    </specificApparelRequirements>
+    <requiredWorkTags>
+      <li>Violent</li>
+    </requiredWorkTags>
+    <disallowedTraits>
+      <li>Nudist</li>
+    </disallowedTraits>
+  </PawnKindDef>
+
+  <PawnKindDef ParentName="BX_BeliarBase">
+    <defName>BX_BeliarChampion</defName>
+    <invNutrition>3.5</invNutrition>
+    <invFoodDef>HemogenPack</invFoodDef>
+    <combatEnhancingDrugsChance>0.1</combatEnhancingDrugsChance>
+    <combatEnhancingDrugsCount>1~2</combatEnhancingDrugsCount>
+    <apparelMoney>1250~2500</apparelMoney>
+    <techHediffsChance>0</techHediffsChance>
+    <gearHealthRange>1~1</gearHealthRange>
+    <weaponMoney>1100~2500</weaponMoney>
+    <weaponTags>
+      <li>BX_BeliarMelee</li>
+    </weaponTags>
+    <apparelAllowHeadgearChance>0.5</apparelAllowHeadgearChance>
+    <apparelTags>
+      <li>MedievalMilitary</li>
+    </apparelTags>
+    <apparelDisallowTags>
+      <li>Western</li>
+    </apparelDisallowTags>
+  </PawnKindDef>
+
+</Defs>

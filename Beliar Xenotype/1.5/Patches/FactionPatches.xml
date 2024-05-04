@@ -93,7 +93,31 @@
 	<Operation Class="PatchOperationAdd">
 		<xpath>/Defs/FactionDef[defName="TribeSavageImpid"]/xenotypeSet/xenotypeChances</xpath>
 		<value>
-			<BX_Beliar>0.1</BX_Beliar>
+			<BX_Beliar>10</BX_Beliar>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/FactionDef[defName = "TribeSavageImpid"]/pawnGroupMakers</xpath>
+		<value>
+		  <li>
+			<!-- Impids + Beliar Champion -->
+			<kindDef>Combat</kindDef>
+			<commonality>50</commonality>
+			<options>
+				<BX_BeliarChampion>5</BX_BeliarChampion>
+				<Tribal_Penitent_Fire>5</Tribal_Penitent_Fire>
+                <Tribal_Warrior_Fire>5</Tribal_Warrior_Fire>
+                <Tribal_Archer>8</Tribal_Archer>
+                <Tribal_Archer_Fire>10</Tribal_Archer_Fire>
+                <Tribal_Hunter>8</Tribal_Hunter>
+                <Tribal_Hunter_Fire>10</Tribal_Hunter_Fire>
+                <Tribal_HeavyArcher>8</Tribal_HeavyArcher>
+                <Tribal_Berserker>5</Tribal_Berserker>
+                <Tribal_ChiefRanged>3</Tribal_ChiefRanged>
+                <Tribal_ChiefMelee>1.5</Tribal_ChiefMelee>
+			</options>
+		  </li>
 		</value>
 	</Operation>
 

@@ -220,6 +220,10 @@
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>-1.2</severityPerDay>
       </li>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>50000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
+      </li>
     </comps>
     <stages>
       <li>
@@ -260,7 +264,7 @@
     <iconPath>UI/Gene_ExplosiveDemise</iconPath>
     <displayCategory>Miscellaneous</displayCategory>
     <displayOrderInCategory>62</displayOrderInCategory>
-    <biostatMet>-1</biostatMet>
+    <biostatMet>1</biostatMet>
     <modExtensions>
       <li Class="EBSGFramework.EBSGExtension">
         <hediffsToApply>

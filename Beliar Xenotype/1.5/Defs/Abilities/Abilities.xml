@@ -17,7 +17,6 @@
     <disableGizmoWhileUndrafted>True</disableGizmoWhileUndrafted>
     <groupDef>MultiRole</groupDef>
     <hotKey>Misc12</hotKey>
-    <warmupStartSound>CombatCommand_Warmup</warmupStartSound>
     <statBases>
       <Ability_Duration>126</Ability_Duration>
       <Ability_EffectRadius>0</Ability_EffectRadius>
@@ -102,6 +101,10 @@
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>-1.2</severityPerDay>
+      </li>
+      <li Class="HediffCompProperties_Disappears">
+        <disappearsAfterTicks>50000</disappearsAfterTicks>
+        <showRemainingTime>true</showRemainingTime>
       </li>
       <li Class="HediffCompProperties_DisappearsOnDeath"/>
       <li Class="HediffCompProperties_VerbGiver">
