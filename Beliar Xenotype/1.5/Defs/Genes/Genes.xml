@@ -111,7 +111,7 @@
         <allowInsects>false</allowInsects>
         <hemogenEfficiency>1</hemogenEfficiency>
         <maxGainableHemogen>0.2</maxGainableHemogen>
-        <maxDistance>1</maxDistance>
+        <maxDistance>1.9</maxDistance>
       </li>
     </comps>
   </HediffDef>
