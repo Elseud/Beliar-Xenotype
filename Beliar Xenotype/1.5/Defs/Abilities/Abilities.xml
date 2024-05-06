@@ -15,6 +15,10 @@
     <sendMessageOnCooldownComplete>False</sendMessageOnCooldownComplete>
     <displayGizmoWhileUndrafted>False</displayGizmoWhileUndrafted>
     <disableGizmoWhileUndrafted>True</disableGizmoWhileUndrafted>
+    <statBases>
+      <Ability_Duration>126</Ability_Duration>
+      <Ability_EffectRadius>0</Ability_EffectRadius>
+    </statBases>
     <verbProperties>
 		  <soundCast>BX_InfernalHeartSound</soundCast>
       <verbClass>Verb_CastAbility</verbClass>
