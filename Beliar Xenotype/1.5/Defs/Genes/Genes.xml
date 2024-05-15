@@ -224,6 +224,32 @@
         <disappearsAfterTicks>50000</disappearsAfterTicks>
         <showRemainingTime>true</showRemainingTime>
       </li>
+      <li Class="EBSGFramework.HediffCompProperties_TieredRegeneration">
+        <healWhileRegrowing>true</healWhileRegrowing>
+        <prioritizeHeal>true</prioritizeHeal>
+        <regenSets>
+            <li>
+              <ticksToRegrowPart>5000</ticksToRegrowPart>
+              <ticksToHealInterval>2500</ticksToHealInterval>
+              <regrowTicksPerTick>1</regrowTicksPerTick>
+              <healTicksPerTick>1</healTicksPerTick>
+              <repeatHealCount>1</repeatHealCount>
+              <healAmount>0.12</healAmount>
+              <minSeverity>0.57</minSeverity>
+              <maxSeverity>0.829</maxSeverity>
+            </li>
+            <li>
+              <ticksToRegrowPart>2500</ticksToRegrowPart>
+              <ticksToHealInterval>2500</ticksToHealInterval>
+              <regrowTicksPerTick>1</regrowTicksPerTick>
+              <healTicksPerTick>1</healTicksPerTick>
+              <repeatHealCount>3</repeatHealCount>
+              <healAmount>0.12</healAmount>
+              <minSeverity>0.83</minSeverity>
+              <maxSeverity>1.01</maxSeverity>
+            </li>
+        </regenSets>
+      </li>
     </comps>
     <stages>
       <li>
@@ -236,7 +262,6 @@
       <li>
         <minSeverity>0.57</minSeverity>
         <label>Knee deep in the dead</label>
-        <regeneration>12</regeneration>
         <statOffsets>
           <InjuryHealingFactor>3</InjuryHealingFactor>
           <ImmunityGainSpeed>1.25</ImmunityGainSpeed>
@@ -245,13 +270,13 @@
       <li>
         <minSeverity>0.83</minSeverity>
         <label>Thy flesh consumed</label>
-        <regeneration>36</regeneration>
         <statOffsets>
           <InjuryHealingFactor>4</InjuryHealingFactor>
           <ImmunityGainSpeed>1.5</ImmunityGainSpeed>
         </statOffsets>
       </li>
     </stages>
+
   </HediffDef>
 
   <!--Explosive Demise-->
