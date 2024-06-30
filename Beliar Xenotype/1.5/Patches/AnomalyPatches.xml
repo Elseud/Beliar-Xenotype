@@ -13,11 +13,13 @@
 					<recipeMaker>
 						<workSkill>Crafting</workSkill>
 						<skillRequirements>
-								<Crafting>8</Crafting>
+							<Crafting>8</Crafting>
 						</skillRequirements>
-						<researchPrerequisite>BioferriteShaping</researchPrerequisite>
+						<researchPrerequisite>BioferriteExtraction</researchPrerequisite>
 						<recipeUsers Inherit="False">
-								<li>BioferriteShaper</li>
+							<li>ElectricSmithy</li>
+							<li>FueledSmithy</li>
+							<li>BioferriteShaper</li>
 						</recipeUsers>
 						<unfinishedThingDef>UnfinishedWeapon</unfinishedThingDef>
 					</recipeMaker>
